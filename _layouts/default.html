@@ -5,84 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Kitchen Canvas</title>
     <style>
-    body { 
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; 
-        max-width: 960px; 
-        margin: 0 auto; /* Remove top margin */
-        padding: 50px 20px; 
-        line-height: 1.6; 
-        color: #333; 
-        height: 100vh; /* Full screen height */
-        display: flex; 
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        flex-direction: column; 
-    }
-    
-    /* Two-Pillar Menu Styling */
-    .nav-bar { 
-        display: flex; 
-        gap: 60px; /* Increased gap */
-        margin-bottom: 50px; 
-        transform: scale(1.4); /* Make the entire menu 40% bigger */
-    }
-    .nav-pillar { position: relative; }
-    .nav-header { 
-        font-weight: bold; 
-        padding: 15px 30px; /* Increased padding for size */
-        background: #333; 
-        color: white; 
-        border-radius: 6px; /* Slightly rounder corners */
-        cursor: pointer; 
-        font-size: 1.2em; /* Slightly larger text */
-        transition: background-color 0.2s; /* Hover effect */
-    }
-    .nav-header:hover {
-        background-color: #d35400; /* Orange hover effect */
-    }
+        /* (The new, clean, centered CSS is perfect and remains here) */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; 
+            max-width: 960px; 
+            margin: 0 auto; 
+            padding: 50px 20px; 
+            line-height: 1.6; 
+            color: #333; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+        }
+        
+        /* Two-Pillar Menu Styling */
+        .nav-bar { 
+            display: flex; 
+            gap: 60px; 
+            margin-bottom: 50px; 
+            transform: scale(1.4); 
+        }
+        .nav-pillar { position: relative; }
+        .nav-header { 
+            font-weight: bold; 
+            padding: 15px 30px; 
+            background: #333; 
+            color: white; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 1.2em; 
+            transition: background-color 0.2s; 
+        }
+        .nav-header:hover {
+            background-color: #d35400; 
+        }
 
-    .dropdown { 
-        display: none; 
-        position: absolute; 
-        background-color: #f9f9f9; 
-        min-width: 200px; 
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); 
-        z-index: 1; 
-        border-radius: 4px; 
-        padding: 5px 0; 
-        left: 50%; /* Start dropdown from center of header */
-        transform: translateX(-50%); /* Pull back 50% of width to truly center */
-        top: 100%; /* Place right below the header */
-    }
-    .dropdown a { 
-        color: black; 
-        padding: 12px 16px; 
-        text-decoration: none; 
-        display: block; 
-    }
-    .dropdown a:hover { background-color: #f1f1f1; color: #d35400; }
-    .nav-pillar:hover .dropdown { display: block; }
-</style>
+        .dropdown { 
+            display: none; 
+            position: absolute; 
+            background-color: #f9f9f9; 
+            min-width: 200px; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); 
+            z-index: 1; 
+            border-radius: 4px; 
+            padding: 5px 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            top: 100%; 
+        }
+        .dropdown a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+        }
+        .dropdown a:hover { background-color: #f1f1f1; color: #d35400; }
+        .nav-pillar:hover .dropdown { display: block; }
+    </style>
 </head>
 <body>
 
     <div class="nav-bar">
-
+        
         <div class="nav-pillar">
-            <div class="nav-header">📝 NOTEBOOK</div>
+            <div class="nav-header">Notebook</div>
             <div class="dropdown">
-                <a href="/designer">New Entry</a>
-                <a href="/">View Log</a>
-                <a href="/search">Search/Filter</a>
+                <a href="/designer">New</a>
+                <a href="/search">Search</a>
             </div>
         </div>
 
         <div class="nav-pillar">
-            <div class="nav-header">🧪 TOOLS</div>
+            <div class="nav-header">Tools</div>
             <div class="dropdown">
                 <a href="/designer">Recipe Designer</a>
-                <a href="/flavor-calculator">Flavor Compatibility</a>
-                <a href="/ratio-scaler">Ratio Scaler</a>
+                <a href="/flavor-calculator">Flavor Calculator</a>
             </div>
         </div>
     </div>
