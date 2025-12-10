@@ -5,78 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Kitchen Canvas</title>
     <style>
-        /* New Gunmetal Blue Color Variable */
-    :root {
-        --gunmetal: #697A8C; /* Steel Blue for a softer, professional look */
-        --accent: #95A6B8; /* Orange for consistent highlighting */
-    }
+        /* Color and Style Definitions */
+        :root {
+            --gunmetal: #697A8C; /* Softer, Grayer Blue (Primary Header Color) */
+            --light-accent: #95A6B8; /* Lighter shade for the soft hover effect */
+            --text-accent: #d35400; /* Orange remains ONLY for text highlighting in the dropdown */
+        }
 
-    body { 
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; 
-        max-width: 960px; 
-        margin: 0 auto; 
-        padding: 50px 20px; 
-        line-height: 1.6; 
-        color: #333; 
-        height: 100vh; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        flex-direction: column; 
-    }
-    
-    /* Two-Pillar Menu Styling */
-    .nav-bar { 
-        display: flex; 
-        gap: 60px; 
-        margin-bottom: 50px; 
-        transform: scale(1.4); 
-    }
-    .nav-pillar { 
-        position: relative; 
-    } 
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; 
+            max-width: 960px; 
+            margin: 0 auto; 
+            padding: 50px 20px; 
+            line-height: 1.6; 
+            color: #333; 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+        }
+        
+        /* Menu Sizing and Positioning */
+        .nav-bar { 
+            display: flex; 
+            gap: 60px; 
+            margin-bottom: 50px; 
+            transform: scale(1.4); 
+        }
+        .nav-pillar { 
+            position: relative; 
+        } 
 
-    .nav-header { 
-        font-weight: bold; 
-        padding: 15px 30px; 
-        background: var(--gunmetal); /* Gunmetal Color */
-        color: white; 
-        border-radius: 6px; 
-        cursor: pointer; 
-        font-size: 1.2em; 
-        transition: background-color 0.2s;
-    }
-    
-    /* Fix: Apply the orange hover style to the header when ANY part of the pillar is hovered (for continuity) */
-    .nav-pillar:hover .nav-header {
-        background-color: var(--accent); 
-    }
+        /* Header (Box) Styling */
+        .nav-header { 
+            font-weight: bold; 
+            padding: 15px 30px; 
+            background: var(--gunmetal);
+            color: white; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 1.2em; 
+            transition: background-color 0.2s;
+        }
+        
+        /* UX Fix: Apply the lighter, softer hover color when ANY part of the pillar is hovered */
+        .nav-pillar:hover .nav-header {
+            background-color: var(--light-accent); 
+        }
 
-    .dropdown { 
-        display: none; 
-        position: absolute; 
-        background-color: #f9f9f9; 
-        min-width: 200px; 
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); 
-        z-index: 1; 
-        border-radius: 4px; 
-        padding: 5px 0; 
-        left: 50%; 
-        transform: translateX(-50%); 
-        top: 100%; 
-    }
-    .dropdown a { 
-        color: black; 
-        padding: 12px 16px; 
-        text-decoration: none; 
-        display: block; 
-    }
-    /* Fix: Keep the desired Gray Highlight with Orange Text */
-    .dropdown a:hover { 
-        background-color: #f1f1f1; /* Light Gray Highlight */
-        color: var(--accent); /* Orange Text */
-    }
-    .nav-pillar:hover .dropdown { display: block; }
+        /* Dropdown Menu Styling */
+        .dropdown { 
+            display: none; 
+            position: absolute; 
+            background-color: #f9f9f9; 
+            min-width: 200px; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); 
+            z-index: 1; 
+            border-radius: 4px; 
+            padding: 5px 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            top: 100%; 
+        }
+        .dropdown a { 
+            color: black; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+        }
+        /* Dropdown Link Hover: Subtle Gray Highlight with Orange Text */
+        .dropdown a:hover { 
+            background-color: #f1f1f1; 
+            color: var(--text-accent); 
+        }
+        .nav-pillar:hover .dropdown { display: block; }
     </style>
 </head>
 <body>
@@ -96,25 +99,8 @@
             <div class="dropdown">
                 <a href="/designer">Recipe Designer</a>
                 <a href="/flavor-calculator">Flavor Calculator</a>
-            </div>
-        </div>
-    </div>
-    {{ content }} 
-<div class="nav-bar">
-        
-        <div class="nav-pillar">
-            <div class="nav-header">Notebook</div>
-            <div class="dropdown">
-                <a href="/designer">New</a>
-                <a href="/search">Search</a>
-            </div>
-        </div>
-
-        <div class="nav-pillar">
-            <div class="nav-header">Tools</div>
-            <div class="dropdown">
-                <a href="/designer">Recipe Designer</a>
-                <a href="/flavor-calculator">Flavor Calculator</a>
+                <a href="/marinade-designer">Marinade Designer</a>
+                <a href="/chili-guide">Dried Chili Guide</a>
             </div>
         </div>
         
@@ -128,8 +114,7 @@
             </div>
         </div>
     </div>
-    ```
+    {{ content }} 
 
-Commit this final change. Your site will now have three beautifully styled pillars: **Notebook**, **Tools**, and **Recipes**.
 </body>
 </html>
