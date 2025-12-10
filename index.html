@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubba Murphy | Culinary Engineering</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; color: #333; }
+        h1 { border-bottom: 2px solid #ff4500; padding-bottom: 10px; color: #111; }
+        .nav { margin-bottom: 40px; background: #eee; padding: 10px; border-radius: 4px; }
+        .nav a { margin-right: 20px; color: #d35400; font-weight: bold; text-decoration: none; }
+        .nav a:hover { text-decoration: underline; }
+        
+        .recipe { border: 1px solid #ddd; padding: 25px; border-radius: 8px; margin-bottom: 30px; background: #fafafa; }
+        .recipe h2 { margin-top: 0; color: #2c3e50; }
+        .tag { display: inline-block; background: #e0e0e0; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 5px; font-weight: bold; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
 <body>
-    <h1>🦞 Bubba Murphy</h1>
-    <p>Culinary Engineering & Optimization</p>
 
-    <div class="recipe">
-        <h2>Experiment 001: Deep Roasted Lobster Oil</h2>
-        </div>
+    <div class="nav">
+        <a href="index.html">🧬 EXPERIMENTS</a>
+        <a href="tools.html">🧮 LAB TOOLS</a>
+    </div>
+
+    <h1>🦞 Bubba Murphy</h1>
+    <p><i>Culinary Engineering & Optimization Log.</i></p>
 
     <div class="recipe">
         <h2>Experiment 002: Lobster "Pesto" Butter (The Recovery)</h2>
-        <span class="tag" style="background:#ccffcc; color:green;">Status: Success</span>
+        <span class="tag" style="background:#ccffcc; color:#006400;">Status: Success</span>
         <span class="tag">Zero Waste</span>
         
         <p><strong>The Hypothesis:</strong></p>
@@ -29,5 +49,35 @@
         <p><strong>Sensory Results:</strong></p>
         <p>Deep orange/brown color. Intensity is higher than the oil alone due to shell solids. Texture is softer than standard butter (due to oil content). Freezing required for storage.</p>
     </div>
-    </body>
+
+    <div class="recipe">
+        <h2>Experiment 001: Deep Roasted Lobster Oil</h2>
+        <span class="tag" style="background:#ffcccc; color:#8b0000;">Yield: 34% (Low)</span>
+        <span class="tag" style="background:#ccffcc; color:#006400;">Flavor: Intense</span>
+        
+        <p><strong>The Data:</strong></p>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Input Oil</td>
+                <td>350 ml</td>
+            </tr>
+            <tr>
+                <td>Recovered Oil</td>
+                <td>120 ml</td>
+            </tr>
+            <tr>
+                <td>Loss</td>
+                <td>230 ml (Trapped in solids)</td>
+            </tr>
+        </table>
+
+        <p><strong>Engineering Notes:</strong></p>
+        <p>Vitamix pulverization created high surface area (good for flavor) but high retention (bad for yield). The sludge retained 66% of the volume. Future Recommendation: Use mechanical pressing (French Press) before fine filtration.</p>
+    </div>
+
+</body>
 </html>
