@@ -1,13 +1,20 @@
 # Site configuration
-title: Kitchen Canvas
+title: Cooking
 description: Recipe Designer & Log
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://bubbamurphy.com" # the base hostname & protocol for your site
+baseurl: ""
+url: "https://bubbamurphy.com"
 
 # Build settings
 markdown: kramdown
 theme: null
-# Exclude files from processing.
+
+# --- NEW SECTION FOR RECIPES ---
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:path/
+# -------------------------------
+
 exclude:
-  - Gemfile
-  - Gemfile.lock
+ - Gemfile
+ - Gemfile.lock
