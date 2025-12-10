@@ -6,7 +6,7 @@ url: "https://bubbamurphy.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-theme: minima # Use a lightweight, default theme to start
+theme: null minima # Use a lightweight, default theme to start
 # Exclude files from processing.
 exclude:
   - Gemfile
