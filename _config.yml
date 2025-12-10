@@ -1,0 +1,13 @@
+# Site configuration
+title: Kitchen Canvas
+description: Recipe Designer & Log
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://bubbamurphy.com" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima # Use a lightweight, default theme to start
+# Exclude files from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
