@@ -1,0 +1,42 @@
+---
+layout: default
+title: Flavor Calculator
+---
+
+<h1>⚖️ Flavor Calculator</h1>
+<p>Enter your protein weight and get quick acid/salt guide values.</p>
+
+<label for="protein-weight">Protein weight (g):</label>
+<input id="protein-weight" type="number" min="1" placeholder="e.g., 180" />
+<button id="calc-btn" type="button">Calculate</button>
+
+<div id="calc-result" style="margin-top: 12px;"></div>
+
+<script>
+(() => {
+    const weightInput = document.getElementById('protein-weight');
+    const result = document.getElementById('calc-result');
+    const button = document.getElementById('calc-btn');
+
+    function fmt(value) {
+        return Number(value).toFixed(1);
+    }
+
+    button.addEventListener('click', () => {
+        const weight = Number(weightInput.value);
+        if (!weight || weight <= 0) {
+            result.textContent = 'Please enter a valid positive weight.';
+            return;
+        }
+
+        const lowAcid = weight * 0.18;
+        const highAcid = weight * 0.25;
+        const salt = weight * 0.015;
+
+        result.innerHTML = `
+            <p><strong>Acid range:</strong> ${fmt(lowAcid)}g – ${fmt(highAcid)}g</p>
+            <p><strong>Salt (1.5%):</strong> ${fmt(salt)}g</p>
+        `;
+    });
+})();
+</script>

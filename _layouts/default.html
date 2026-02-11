@@ -3,118 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | Kitchen Canvas</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
     <style>
-        /* Color and Style Definitions */
         :root {
-            --gunmetal: #697A8C; /* Softer, Grayer Blue (Primary Header Color) */
-            --light-accent: #95A6B8; /* Lighter shade for the soft hover effect */
-            --text-accent: #d35400; /* Orange remains ONLY for text highlighting in the dropdown */
+            --gunmetal: #697a8c;
+            --light-accent: #95a6b8;
+            --text-accent: #d35400;
+            --page-bg: #f7f8fa;
+            --card-bg: #ffffff;
+            --text-main: #2f3640;
+            --text-muted: #5c6570;
+            --border: #d7dde5;
         }
 
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; 
-            max-width: 960px; 
-            margin: 0 auto; 
-            padding: 50px 20px; 
-            line-height: 1.6; 
-            color: #333; 
-            height: 100vh; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            flex-direction: column; 
-        }
-        
-        /* Menu Sizing and Positioning */
-        .nav-bar { 
-            display: flex; 
-            gap: 60px; 
-            margin-bottom: 50px; 
-            transform: scale(1.4); 
-        }
-        .nav-pillar { 
-            position: relative; 
-        } 
+        * { box-sizing: border-box; }
 
-        /* Header (Box) Styling */
-        .nav-header { 
-            font-weight: bold; 
-            padding: 15px 30px; 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            color: var(--text-main);
+            background: var(--page-bg);
+            line-height: 1.6;
+        }
+
+        .site-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+
+        .site-header {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--gunmetal);
+        }
+
+        .tagline {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pillar {
+            position: relative;
+        }
+
+        .nav-header {
+            font-weight: 700;
+            padding: 10px 14px;
             background: var(--gunmetal);
-            color: white; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            font-size: 1.2em; 
-            transition: background-color 0.2s;
-        }
-        
-        /* UX Fix: Apply the lighter, softer hover color when ANY part of the pillar is hovered */
-        .nav-pillar:hover .nav-header {
-            background-color: var(--light-accent); 
+            color: #fff;
+            border-radius: 6px;
+            border: 0;
+            cursor: pointer;
+            font-size: 0.98rem;
         }
 
-        /* Dropdown Menu Styling */
-        .dropdown { 
-            display: none; 
-            position: absolute; 
-            background-color: #f9f9f9; 
-            min-width: 200px; 
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); 
-            z-index: 1; 
-            border-radius: 4px; 
-            padding: 5px 0; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            top: 100%; 
+        .nav-pillar:hover .nav-header,
+        .nav-pillar:focus-within .nav-header {
+            background-color: var(--light-accent);
         }
-        .dropdown a { 
-            color: black; 
-            padding: 12px 16px; 
-            text-decoration: none; 
-            display: block; 
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 210px;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            z-index: 20;
+            border-radius: 8px;
+            padding: 6px 0;
+            left: 0;
+            top: calc(100% + 6px);
         }
-        /* Dropdown Link Hover: Subtle Gray Highlight with Orange Text */
-        .dropdown a:hover { 
-            background-color: #f1f1f1; 
-            color: var(--text-accent); 
+
+        .dropdown a {
+            color: #1f2328;
+            padding: 10px 14px;
+            text-decoration: none;
+            display: block;
         }
-        .nav-pillar:hover .dropdown { display: block; }
+
+        .dropdown a:hover,
+        .dropdown a:focus-visible {
+            background-color: #f1f4f7;
+            color: var(--text-accent);
+        }
+
+        .nav-pillar:hover .dropdown,
+        .nav-pillar:focus-within .dropdown {
+            display: block;
+        }
+
+        main {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        @media (max-width: 700px) {
+            .site-shell { padding: 12px 10px 28px; }
+            .brand-row { flex-direction: column; align-items: flex-start; }
+            .dropdown {
+                position: static;
+                margin-top: 6px;
+                box-shadow: none;
+                border: 1px solid var(--border);
+            }
+            .nav-bar { gap: 10px; }
+        }
     </style>
 </head>
 <body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand-row">
+                <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+                <p class="tagline">{{ site.description }}</p>
+            </div>
 
-    <div class="nav-bar">
-        
-        <div class="nav-pillar">
-            <div class="nav-header">Notebook</div>
-            <div class="dropdown">
-                <a href="/designer">New</a>
-                <a href="/search">Search</a>
-            </div>
-        </div>
+            <nav class="nav-bar" aria-label="Primary navigation">
+                <div class="nav-pillar">
+                    <button class="nav-header" type="button" aria-haspopup="true">Notebook</button>
+                    <div class="dropdown">
+                        <a href="{{ '/designer/' | relative_url }}">New Entry</a>
+                        <a href="{{ '/search/' | relative_url }}">Search Notes</a>
+                    </div>
+                </div>
 
-        <div class="nav-pillar">
-            <div class="nav-header">Tools</div>
-            <div class="dropdown">
-                <a href="/designer">Recipe Designer</a>
-                <a href="/flavor-calculator">Flavor Calculator</a>
-                <a href="/marinade-designer">Marinade Designer</a>
-                <a href="/chili-guide">Dried Chili Guide</a>
-            </div>
-        </div>
-        
-        <div class="nav-pillar">
-            <div class="nav-header">Recipes</div>
-            <div class="dropdown">
-                <a href="/recipes">Seafood</a>
-                <a href="/recipes">Dips</a>
-                <a href="/recipes">Soup</a>
-                <a href="/recipes">View All</a>
-            </div>
-        </div>
+                <div class="nav-pillar">
+                    <button class="nav-header" type="button" aria-haspopup="true">Tools</button>
+                    <div class="dropdown">
+                        <a href="{{ '/designer/' | relative_url }}">Recipe Designer</a>
+                        <a href="{{ '/flavor-calculator/' | relative_url }}">Flavor Calculator</a>
+                        <a href="{{ '/marinade-designer/' | relative_url }}">Marinade Designer</a>
+                        <a href="{{ '/chili-guide/' | relative_url }}">Dried Chili Guide</a>
+                    </div>
+                </div>
+
+                <div class="nav-pillar">
+                    <button class="nav-header" type="button" aria-haspopup="true">Recipes</button>
+                    <div class="dropdown">
+                        <a href="{{ '/recipes/' | relative_url }}">Seafood</a>
+                        <a href="{{ '/recipes/' | relative_url }}">Dips</a>
+                        <a href="{{ '/recipes/' | relative_url }}">Soup</a>
+                        <a href="{{ '/recipes/' | relative_url }}">View All</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
     </div>
-    {{ content }} 
-
 </body>
 </html>

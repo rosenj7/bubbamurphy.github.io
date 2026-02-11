@@ -1,6 +1,6 @@
 # Site configuration
-title: Cooking
-description: Recipe Designer & Log
+title: Kitchen Canvas
+description: A culinary notebook with practical recipe tools.
 baseurl: ""
 url: "https://bubbamurphy.com"
 
@@ -8,12 +8,10 @@ url: "https://bubbamurphy.com"
 markdown: kramdown
 theme: null
 
-# --- NEW SECTION FOR RECIPES ---
 collections:
   recipes:
     output: true
     permalink: /recipes/:path/
-# -------------------------------
 
 exclude:
  - Gemfile

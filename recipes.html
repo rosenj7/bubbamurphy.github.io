@@ -8,9 +8,9 @@ title: Recipe Index
 
 {% for recipe in site.recipes %}
     <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
-        <h2><a href="{{ recipe.url }}">{{ recipe.title }}</a></h2>
+        <h2><a href="{{ recipe.url | relative_url }}">{{ recipe.title }}</a></h2>
         <p><strong>Category:</strong> {{ recipe.category }}</p>
         <p><strong>Key Ratio:</strong> Acid Ratio {{ recipe.acid_ratio_ww }}</p>
-        <a href="{{ recipe.url }}">View Full Recipe</a>
+        <a href="{{ recipe.url | relative_url }}">View Full Recipe</a>
     </div>
 {% endfor %}
