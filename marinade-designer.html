@@ -4,8 +4,41 @@ title: Marinade Designer
 ---
 
 <h1>🧪 Marinade Designer</h1>
-<p>Select your protein to determine optimal ratios for acid, salt, and fat.</p>
+<p>Select your protein weight to estimate acid, salt, and fat targets.</p>
 
-<div id="marinade-app">
-    <p>Loading interactive tool...</p>
-</div>
+<label for="base-weight">Protein weight (g):</label>
+<input id="base-weight" type="number" min="1" placeholder="e.g., 250" />
+<button id="marinade-calc" type="button">Build ratio</button>
+
+<div id="marinade-result" style="margin-top: 12px;"></div>
+
+<script>
+(() => {
+    const weightInput = document.getElementById('base-weight');
+    const result = document.getElementById('marinade-result');
+    const button = document.getElementById('marinade-calc');
+
+    function format(value) {
+        return Number(value).toFixed(1);
+    }
+
+    button.addEventListener('click', () => {
+        const weight = Number(weightInput.value);
+
+        if (!weight || weight <= 0) {
+            result.textContent = 'Please provide a valid positive weight in grams.';
+            return;
+        }
+
+        const acid = weight * 0.2;
+        const salt = weight * 0.018;
+        const fat = weight * 0.08;
+
+        result.innerHTML = `
+            <p><strong>Suggested acid (20%):</strong> ${format(acid)}g</p>
+            <p><strong>Suggested salt (1.8%):</strong> ${format(salt)}g</p>
+            <p><strong>Suggested finishing fat (8%):</strong> ${format(fat)}g</p>
+        `;
+    });
+})();
+</script>
